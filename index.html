@@ -226,20 +226,21 @@
         .portfolio-thumb {
             height: 220px;
             overflow: hidden;
-            background: #1a1a24;
+            background: #0c0c0e;
             border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Faz a imagem preencher o espaço perfeitamente */
-        .portfolio-thumb img {
+        .portfolio-thumb svg {
             width: 100%;
             height: 100%;
-            object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .portfolio-item:hover .portfolio-thumb img {
-            transform: scale(1.05); /* Efeito de zoom suave ao passar o mouse */
+        .portfolio-item:hover .portfolio-thumb svg {
+            transform: scale(1.03);
         }
 
         .portfolio-info {
@@ -289,11 +290,24 @@
             font-size: 1rem;
             gap: 10px;
             transition: transform 0.2s, box-shadow 0.2s;
+            margin-bottom: 15px;
         }
 
         .btn-whatsapp:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 255, 102, 0.2);
+        }
+
+        .email-contact {
+            display: block;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .email-contact:hover {
+            color: var(--accent);
         }
 
         footer {
@@ -303,6 +317,12 @@
             font-size: 0.85rem;
             color: var(--text-sub);
             margin-top: 60px;
+        }
+
+        .footer-info {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #555566;
         }
 
         @media (max-width: 768px) {
@@ -322,41 +342,41 @@
             <ul class="nav-links">
                 <li><a href="#servicos">Serviços</a></li>
                 <li><a href="#portfolio">Modelos</a></li>
-                <li><a href="#contato">Orçamento</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="container">
-        <div class="badge-promo">Disponibilidade para novos projetos nesta semana</div>
-        <h1>Posicione seu negócio na internet com um site <span>de alto impacto</span></h1>
-        <p>Desenvolvemos landing pages de alta conversão, portfólios profissionais e sites institucionais sob medida para transformar visitantes em clientes fiéis.</p>
-        <a href="#contato" class="btn-primary">Quero um Site Profissional</a>
+        <div class="badge-promo">🔥 Agenda aberta para 2 novos projetos esta semana</div>
+        <h1>Transforme visitantes em clientes com um site <span>de alta conversão</span></h1>
+        <p>Criamos Landing Pages premium, portfólios de autoridade e estruturas institucionais sob medida para destacar sua marca e multiplicar suas vendas digitais.</p>
+        <a href="#contato" class="btn-primary">Quero Destacar Meu Negócio</a>
     </header>
 
     <section id="servicos" class="container">
         <div class="section-title">
-            <h2>Nossas Soluções Digitais</h2>
-            <p>O que podemos construir para alavancar a sua marca ou empresa</p>
+            <h2>Soluções Focadas em Lucro</h2>
+            <p>Desenvolvemos a estrutura ideal para o momento atual do seu negócio</p>
         </div>
         <div class="grid-services">
             
             <div class="card">
                 <div class="card-icon">🎯</div>
-                <h3>Landing Pages</h3>
-                <p>Páginas de vendas de alta conversão focadas em um único objetivo: transformar seus cliques e anúncios em leads e vendas diretas.</p>
+                <h3>Landing Pages Premium</h3>
+                <p>Páginas de vendas ultra-rápidas e milimetricamente desenhadas para transformar o tráfego dos seus anúncios (Google/Meta) em leads qualificados e vendas diretas.</p>
             </div>
 
             <div class="card">
-                <div class="card-icon">💼</div>
-                <h3>Portfólios Digitais</h3>
-                <p>Perfeito para profissionais autônomos, médicos, advogados e arquitetos que precisam expor seus trabalhos com elegância e autoridade.</p>
+                <div class="card-icon">👑</div>
+                <h3>Portfólios de Autoridade</h3>
+                <p>Posicione-se como um profissional de elite. Perfeito para médicos, advogados, arquitetos e especialistas que desejam gerar extrema confiança e cobrar mais caro.</p>
             </div>
 
             <div class="card">
                 <div class="card-icon">🏢</div>
                 <h3>Sites Institucionais</h3>
-                <p>Sua empresa aberta 24h por dia. Estrutura completa apresentando seus serviços, história e integrando canais automáticos de atendimento.</p>
+                <p>A vitrine digital definitiva para a sua empresa. Passe credibilidade imediata no mercado, apresente seus diferenciais e centralize seus canais de atendimento.</p>
             </div>
 
         </div>
@@ -364,28 +384,52 @@
 
     <section id="portfolio" class="container">
         <div class="section-title">
-            <h2>Estruturas Modernas</h2>
-            <p>Conheça alguns dos padrões de layouts limpos e responsivos que aplicamos</p>
+            <h2>Layouts Modernos & Fluidos</h2>
+            <p>Conheça os padrões visuais e tecnológicos que aplicamos em nossos projetos</p>
         </div>
         <div class="grid-portfolio">
             
+            <!-- Modelo 1 (Corporate Wireframe) -->
             <div class="portfolio-item">
                 <div class="portfolio-thumb">
-                    <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Modelo Corporate Premium">
+                    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="600" height="220" fill="#0c0c0e"/>
+                        <rect width="600" height="30" fill="#131316"/>
+                        <circle cx="20" cy="15" r="4" fill="#ff5f56"/>
+                        <circle cx="32" cy="15" r="4" fill="#ffbd2e"/>
+                        <circle cx="44" cy="15" r="4" fill="#27c93f"/>
+                        <rect x="40" y="65" width="140" height="18" rx="3" fill="#00f0ff" opacity="0.8"/>
+                        <rect x="40" y="98" width="340" height="10" rx="2" fill="#94a3b8" opacity="0.4"/>
+                        <rect x="40" y="118" width="220" height="10" rx="2" fill="#94a3b8" opacity="0.4"/>
+                        <rect x="40" y="150" width="160" height="45" rx="4" fill="#131316" stroke="#1e1e24" stroke-width="1"/>
+                        <rect x="215" y="150" width="160" height="45" rx="4" fill="#131316" stroke="#1e1e24" stroke-width="1"/>
+                        <rect x="390" y="150" width="160" height="45" rx="4" fill="#131316" stroke="#1e1e24" stroke-width="1"/>
+                    </svg>
                 </div>
                 <div class="portfolio-info">
-                    <h4>Modelo Premium Corporate</h4>
-                    <p>Ideal para clínicas, consultórios e prestadores de serviços de alto padrão que buscam um design limpo e corporativo.</p>
+                    <h4>Padrão Corporate Clean</h4>
+                    <p>Focado em empresas consolidadas, clínicas e escritórios que exigem uma experiência limpa, sofisticada e de navegação intuitiva.</p>
                 </div>
             </div>
 
+            <!-- Modelo 2 (Minimalist Neon Wireframe) -->
             <div class="portfolio-item">
                 <div class="portfolio-thumb">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" alt="Modelo Black Minimalist">
+                    <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="600" height="220" fill="#050507"/>
+                        <rect width="600" height="30" fill="#0c0c0e"/>
+                        <circle cx="20" cy="15" r="4" fill="#ff5f56"/>
+                        <circle cx="32" cy="15" r="4" fill="#ffbd2e"/>
+                        <circle cx="44" cy="15" r="4" fill="#27c93f"/>
+                        <circle cx="300" cy="85" r="22" fill="#7000ff" opacity="0.5"/>
+                        <rect x="180" y="125" width="240" height="14" rx="3" fill="#ffffff" opacity="0.9"/>
+                        <rect x="140" y="150" width="320" height="8" rx="2" fill="#94a3b8" opacity="0.4"/>
+                        <rect x="240" y="175" width="120" height="25" rx="4" fill="#00f0ff"/>
+                    </svg>
                 </div>
                 <div class="portfolio-info">
-                    <h4>Modelo Black Minimalist</h4>
-                    <p>Focado em infoprodutos, startups, portfólios de desenvolvedores e campanhas arrojadas de tráfego pago.</p>
+                    <h4>Padrão Bold & Minimalist</h4>
+                    <p>Desenvolvido para infoprodutos, startups, e-commerces inovadores e marcas modernas que buscam forte impacto visual e contraste.</p>
                 </div>
             </div>
 
@@ -394,11 +438,15 @@
 
     <section id="contato" class="container">
         <div class="cta-block">
-            <h3>Vamos tirar o seu projeto do papel?</h3>
-            <p>Fale diretamente comigo para fazermos um orçamento rápido, sem compromisso e entender qual a melhor estrutura para o seu modelo de negócio.</p>
+            <h3>Pronto para escalar o seu negócio no digital?</h3>
+            <p>Toque no botão abaixo para iniciarmos uma consultoria rápida no WhatsApp. Vou entender seu momento atual e desenhar a melhor estratégia para o seu site.</p>
             
-            <a href="https://wa.me/55219XXXXXXXX" target="_blank" class="btn-whatsapp">
-                💬 Iniciar Atendimento via WhatsApp
+            <a href="https://wa.me/5521980476367" target="_blank" class="btn-whatsapp">
+                💬 Garantir Diagnóstico Gratuito via WhatsApp
+            </a>
+            
+            <a href="mailto:niamorim14@outlook.com" class="email-contact">
+                Ou envie um e-mail: niamorim14@outlook.com
             </a>
         </div>
     </section>
@@ -406,7 +454,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2026 Nascimento Digital Studio. Todos os direitos reservados.</p>
-            <p style="font-size: 0.75rem; margin-top: 5px; color: #555566;">Desenvolvido com foco em performance e carregamento instantâneo.</p>
+            <p class="footer-info">Contato: niamorim14@outlook.com | Desenvolvido com foco em máxima performance.</p>
         </div>
     </footer>
 
