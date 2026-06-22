@@ -33,6 +33,81 @@
             overflow-x: hidden;
         }
 
+        /* Ambient Fluid Background Solution */
+        .bg-glow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+            background-color: var(--bg-main);
+            pointer-events: none;
+        }
+
+        /* Fluid Illuminated Clouds */
+        .glow-ball {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.06;
+            mix-blend-mode: screen;
+            animation: floatGlow 22s infinite alternate ease-in-out;
+        }
+        .ball-1 {
+            top: -10%;
+            left: 5%;
+            width: 55vw;
+            height: 55vw;
+            background: var(--accent);
+        }
+        .ball-2 {
+            bottom: -5%;
+            right: 5%;
+            width: 60vw;
+            height: 60vw;
+            background: #7000ff;
+            animation-duration: 28s;
+            animation-delay: -6s;
+        }
+
+        /* Fluid Illuminated Waves */
+        .wave-svg {
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            opacity: 0.25;
+        }
+        .wave-line {
+            transition: all 0.5s ease;
+        }
+        .line-1 {
+            animation: fluidWave1 25s infinite alternate ease-in-out;
+        }
+        .line-2 {
+            animation: fluidWave2 20s infinite alternate ease-in-out;
+        }
+
+        /* Animations for Background */
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(4vw, 8vh) scale(1.08); }
+            100% { transform: translate(-3vw, -4vh) scale(0.95); }
+        }
+        @keyframes fluidWave1 {
+            0% { transform: rotate(0deg) translate(0, 0px) scaleY(1); }
+            50% { transform: rotate(1deg) translate(20px, 40px) scaleY(1.15); }
+            100% { transform: rotate(-1deg) translate(-10px, -20px) scaleY(0.95); }
+        }
+        @keyframes fluidWave2 {
+            0% { transform: rotate(0deg) translate(0, 0px) scaleY(1.05); }
+            50% { transform: rotate(-1.5deg) translate(-30px, 20px) scaleY(0.9); }
+            100% { transform: rotate(1deg) translate(15px, -30px) scaleY(1.1); }
+        }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -40,9 +115,9 @@
         }
 
         nav {
-            background: rgba(5, 5, 7, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(5, 5, 7, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
@@ -83,20 +158,9 @@
         }
 
         header {
-            padding: 100px 0 80px 0;
+            padding: 120px 0 90px 0;
             text-align: center;
             position: relative;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -10%; left: 50%; transform: translateX(-50%);
-            width: 300px; height: 300px;
-            background: var(--accent);
-            filter: blur(150px);
-            opacity: 0.12;
-            pointer-events: none;
         }
 
         .badge-promo {
@@ -177,16 +241,19 @@
         }
 
         .card {
-            background: var(--bg-surface);
+            background: rgba(12, 12, 14, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--border);
             padding: 35px;
             border-radius: 8px;
-            transition: border-color 0.2s, transform 0.2s;
+            transition: border-color 0.2s, transform 0.2s, background-color 0.2s;
         }
 
         .card:hover {
             border-color: rgba(0, 240, 255, 0.3);
             transform: translateY(-4px);
+            background: rgba(19, 19, 22, 0.8);
         }
 
         .card-icon {
@@ -212,15 +279,18 @@
         }
 
         .portfolio-item {
-            background: var(--bg-card);
+            background: rgba(19, 19, 22, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border: 1px solid var(--border);
             border-radius: 8px;
             overflow: hidden;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s;
         }
 
         .portfolio-item:hover {
             transform: translateY(-4px);
+            border-color: rgba(0, 240, 255, 0.2);
         }
 
         .portfolio-thumb {
@@ -258,7 +328,9 @@
         }
 
         .cta-block {
-            background: linear-gradient(135deg, #0c0c0e 0%, #161622 100%);
+            background: linear-gradient(135deg, rgba(12, 12, 14, 0.8) 0%, rgba(22, 22, 34, 0.8) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--border);
             padding: 60px 40px;
             border-radius: 12px;
@@ -317,6 +389,7 @@
             font-size: 0.85rem;
             color: var(--text-sub);
             margin-top: 60px;
+            background: rgba(5, 5, 7, 0.8);
         }
 
         .footer-info {
@@ -335,6 +408,32 @@
     </style>
 </head>
 <body>
+
+    <!-- ELEMENTO DE FLUIDEZ DE FUNDO -->
+    <div class="bg-glow-container">
+        <div class="glow-ball ball-1"></div>
+        <div class="glow-ball ball-2"></div>
+        
+        <svg class="wave-svg" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="neon-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
+                    <stop offset="30%" stop-color="#00f0ff" stop-opacity="0.12" />
+                    <stop offset="70%" stop-color="#7000ff" stop-opacity="0.08" />
+                    <stop offset="100%" stop-color="#7000ff" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="neon-purple" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#7000ff" stop-opacity="0" />
+                    <stop offset="40%" stop-color="#00f0ff" stop-opacity="0.06" />
+                    <stop offset="80%" stop-color="#7000ff" stop-opacity="0.1" />
+                    <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+                </linearGradient>
+            </defs>
+            <!-- Ondas Fluidas do Background -->
+            <path class="wave-line line-1" d="M0,250 C360,400 720,100 1080,350 C1260,475 1380,350 1440,300 L1440,900 L0,900 Z" fill="url(#neon-cyan)"/>
+            <path class="wave-line line-2" d="M0,450 C480,200 840,600 1200,300 C1320,200 1400,280 1440,320 L1440,900 L0,900 Z" fill="url(#neon-purple)"/>
+        </svg>
+    </div>
 
     <nav>
         <div class="container nav-wrapper">
@@ -439,7 +538,7 @@
     <section id="contato" class="container">
         <div class="cta-block">
             <h3>Pronto para escalar o seu negócio no digital?</h3>
-            <p>Toque no botão abaixo para iniciarmos uma consultoria rápida no WhatsApp. Vou entender seu momento atual e desenhar a melhor estratégia para o seu site.</p>
+            <p>Toque no botão abaixo para iniciarmos uma consultoria rápida no WhatsApp. Vou entender seu momento atual e desenho a melhor estratégia para o seu site.</p>
             
             <a href="https://wa.me/5521980476367" target="_blank" class="btn-whatsapp">
                 💬 Garantir Diagnóstico Gratuito via WhatsApp
